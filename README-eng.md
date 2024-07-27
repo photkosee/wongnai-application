@@ -12,13 +12,13 @@ In this task, you have to develop an API Gateway to retrieve data from the provi
 
 **Create API Gateway by using Typescript**
 
-- [ ] Create various endpoints and send data back so that the web can be displayed according to the design that is defined correctly.
-- [ ] Write a unit test for each endpoint created and ensures that each endpoint is always available and working properly
+- [x] Create various endpoints and send data back so that the web can be displayed according to the design that is defined correctly.
+- [x] Write a unit test for each endpoint created and ensures that each endpoint is always available and working properly
 
 
 #### Extra Requirements
 
-- [ ] Make sure each endpoint has good performance and can respond quickly.
+- [x] Make sure each endpoint has good performance and can respond quickly.
 
 #### JSON Data Spec
 
