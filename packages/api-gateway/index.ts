@@ -10,10 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => res.send("LINE MAN Wongnai Frontend Assignment"));
 app.use("/api", apiRoutes);
 
-try {
-	app.listen(port, (): void => {
-		console.log(`Connected successfully on port ${port}`);
-	});
-} catch (error) {
-	console.error(`Error occured: ${(error as Error).message}`);
-}
+const server = app.listen(port, (): void => {
+  console.log(`Connected successfully on port ${port}`);
+});
+
+export default server;
