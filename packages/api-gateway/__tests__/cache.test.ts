@@ -7,7 +7,9 @@ app.use(express.json());
 app.use(cacheMiddleware);
 
 app.get("/test", (req, res) => {
-  res.json({ message: "This message should be cached" });
+  setTimeout(() => {
+    res.json({ message: "This message should be cached" });
+  }, 500);
 });
 
 describe("Cache Middleware", () => {
@@ -15,7 +17,10 @@ describe("Cache Middleware", () => {
     const response1 = await request(app).get("/test");
     expect(response1.body).toEqual({ message: "This message should be cached" });
 
+    const start = Date.now();
     const response2 = await request(app).get("/test");
     expect(response2.body).toEqual({ message: "This message should be cached" });
+    const duration = Date.now() - start;
+    expect(duration).toBeLessThan(500);
   });
 });
