@@ -4,13 +4,12 @@ import server from "..";
 const restaurantId = 567051;
 const menuName = "ข้าวผัดปลาทู";
 
-afterAll(() => {
-  server.close();
+afterAll((done) => {
+  server.close(done);
 });
 
 describe("Restaurant API", () => {
-
-  it(`should fetch restaurant data and verify the format for restaurant ID ${restaurantId}`, async () => {
+  test(`should fetch restaurant data and verify the format for restaurant ID ${restaurantId}`, async () => {
     const res = await request(server).get(`/api/restaurants/${restaurantId}`);
     expect(res.status).toBe(200);
 
@@ -28,9 +27,10 @@ describe("Restaurant API", () => {
     expect(res.body).toMatchObject(expectedFormat);
   });
 
-  it(`should fetch short menu data and verify the format for menu ${menuName} of restaurant ID ${restaurantId}`, async () => {
+  test(`should fetch short menu data and verify the format for menu ${menuName} of restaurant ID ${restaurantId}`, async () => {
     const menuRes = await request(server).get(`/api/restaurants/${restaurantId}/menus/${menuName}/short`);
     expect(menuRes.status).toBe(200);
+
     expect(menuRes.body).toMatchObject({
       "name":"ข้าวผัดปลาทู",
       "id":"ข้าวผัดปลาทู",
@@ -42,7 +42,7 @@ describe("Restaurant API", () => {
     });
   });
 
-  it(`should fetch full menu data and verify the format for menu ${menuName} of restaurant ID ${restaurantId}`, async () => {
+  test(`should fetch full menu data and verify the format for menu ${menuName} of restaurant ID ${restaurantId}`, async () => {
     const fullMenuRes = await request(server).get(`/api/restaurants/${restaurantId}/menus/${menuName}/full`);
     expect(fullMenuRes.status).toBe(200);
     expect(fullMenuRes.body).toMatchObject({
