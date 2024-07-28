@@ -1,4 +1,5 @@
 import express, { Application } from "express";
+import cors from "cors";
 import apiRoutes from "./routes";
 import { cacheMiddleware } from "./middlewares/cacheMiddleware";
 
@@ -7,6 +8,7 @@ const port = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use(cacheMiddleware);
 

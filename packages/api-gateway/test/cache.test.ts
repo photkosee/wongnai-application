@@ -1,6 +1,6 @@
 import express from "express";
 import request from "supertest";
-import { cacheMiddleware } from "../middlewares/cacheMiddleware";
+import { cacheMiddleware } from "../src/middlewares/cacheMiddleware";
 
 const app = express();
 app.use(express.json());
