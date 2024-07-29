@@ -2,6 +2,7 @@
 
 - [Background](#background)
 - [Project Requirements](#project-requirements)
+- [Demonstration](#demonstration)
 - [Built With](#built-with)
 - [How to run the project](#how-to-run-the-project)
 - [How to run jest](#how-to-run-jest)
