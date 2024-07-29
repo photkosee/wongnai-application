@@ -1,10 +1,11 @@
 import express, { Application } from "express";
 import cors from "cors";
+import "dotenv/config";
 import apiRoutes from "./routes";
 import { cacheMiddleware } from "./middlewares/cacheMiddleware";
 
 const app: Application = express();
-const port = 3001;
+const port = process.env.PORT || 3555;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

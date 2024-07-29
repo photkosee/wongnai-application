@@ -78,14 +78,11 @@ export const toMatchFullMenuFormat = (received: any) => {
       typeof received.largeImage === "undefined" ||
       typeof received.largeImage === "string"
     ) &&
-    (
-      typeof received.options === "undefined" ||
-      (Array.isArray(received.options) &&
-        received.options.every((option: any) =>
-          typeof option.label === "string" &&
-          Array.isArray(option.choices) &&
-          option.choices.every((choice: any) => typeof choice.label === "string")
-        )
+    (Array.isArray(received.options) &&
+      received.options.every((option: any) =>
+        typeof option.label === "string" &&
+        Array.isArray(option.choices) &&
+        option.choices.every((choice: any) => typeof choice.label === "string")
       )
     );
 
