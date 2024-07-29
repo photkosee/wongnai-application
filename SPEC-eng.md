@@ -141,13 +141,13 @@ Create a web application for displaying menus with good UX in mind. Users will f
 
 The web application must be able to perform all of the following features:
 
-- [ ] Display details of each menu correctly
-- [ ] Display restaurant detail correctly
-- [ ] Can be used well on all screen sizes such as Desktop, Tablet, or Smartphone
+- [x] Display details of each menu correctly
+- [x] Display restaurant detail correctly
+- [x] Can be used well on all screen sizes such as Desktop, Tablet, or Smartphone
 
 And to control the quality of the code that will be sent to the user, we will need to do the following:
 
-- [ ] Write a unit test to ensure that all features are working properly.
+- [x] Write a unit test to ensure that all features are working properly.
 
 Our main focus is to provide convenience to users. You can freely add other features in addition to the features mentioned above to create a better user experience and increase sales for the restaurant that uses your web application.
 
@@ -155,9 +155,9 @@ Our main focus is to provide convenience to users. You can freely add other feat
 
 This is the part that if we do, it will help the UX even better.
 
-- [ ] Displays the discount for a period of time UI to increase user motivation in purchasing decisions
-- [ ] Displays the popular menu UI for the top sales menu to increase user motivation in purchasing decisions
-- [ ] Make your website faster, even with a lot of images and data that need to be loaded.
+- [x] Displays the discount for a period of time UI to increase user motivation in purchasing decisions
+- [x] Displays the popular menu UI for the top sales menu to increase user motivation in purchasing decisions
+- [x] Make your website faster, even with a lot of images and data that need to be loaded.
 
 ### Grading Criteria
 
