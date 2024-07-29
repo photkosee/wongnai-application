@@ -32,16 +32,18 @@ This project is an assignment for the LINE MAN Wongnai Frontend Engineer Interns
 ## Built With
 
 ### Backend
-  - Express
-  - Jest
+  - Express 4
   - Axios
   - node-cache
+  - Test with Jest and supertest
 
 ### Frontend
   - React 17
   - React Router v6
   - Axios
   - Tailwind CSS
+  - react-intersection-observer
+  - Test with Jest and React Testing Library
 
 
 ## Reflection
