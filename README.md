@@ -27,7 +27,11 @@ This project is an assignment for the LINE MAN Wongnai Frontend Engineer Interns
 - [x] Dynamic route for each restaurant
 - [x] Displays the discount for a period of time UI to increase user motivation in purchasing decisions
 - [x] Displays the popular menu UI for the top sales menu to increase user motivation in purchasing decisions
+- [x] Model that provides further details for each menu
 - [x] Make your website faster, even with a lot of images and data that need to be loaded.
+
+## Demonstration
+![wongnai-demo](https://github.com/user-attachments/assets/8de83248-84a4-4077-b824-95943e057516)
 
 ## Built With
 
@@ -42,7 +46,6 @@ This project is an assignment for the LINE MAN Wongnai Frontend Engineer Interns
   - React Router v6
   - Axios
   - Tailwind CSS
-
 
 ## Reflection
 
@@ -69,14 +72,6 @@ This error occurred with the following code:
 render(<MenuCard {...menu} />);
 ```
 spent some time trying to fix the types of input and the way I imported the component, but those were not the actual issues. It turned out that the problem was that the file was not using the .tsx extension, which is necessary for using React components. This oversight happened simply because I hadn't written unit tests for the frontend in so long. But this is a good to to revise it.
-
-### Unresolved issue
-
-Even though all the tests are passing, there are still some errors that I haven't resolved that is:
-```
-Cannot log after tests are done. Did you forget to wait for something async in your test?
-Attempted to log "Warning: An update to MenuCard inside a test was not wrapped in act(...).
-```
 
 ## How to run the project
 
