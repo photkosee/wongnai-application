@@ -10,7 +10,7 @@
 ## Background
 
 This project is an assignment for the LINE MAN Wongnai Frontend Engineer Internship 2023 application.
-[Link to project's specification](README-eng.md)
+[Link to project's specification](SPEC-eng.md)
 
 ## Project Requirements
 
