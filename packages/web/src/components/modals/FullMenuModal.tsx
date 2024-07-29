@@ -5,27 +5,39 @@ import { FullMenu } from "../../types/restuarant";
 import isWithinTimePeriod from "../../utils/isWithinTimePeriod";
 import ChoiceButton from "../inputs/ChoiceButton";
 
-interface FullMenuModelProps {
+interface FullMenuModalProps {
   menu: FullMenu;
   loading: boolean;
   onClose: () => void;
 }
 
-const FullMenuModel = (props: FullMenuModelProps): JSX.Element => {
+const FullMenuModal = (props: FullMenuModalProps): JSX.Element => {
   const [isClosing, setIsClosing] = useState(false);
   const menu = props.menu;
   const isSoldOut = menu.totalInStock - menu.sold < 1;
   const isDiscounted = () => {
-    if (menu.discountedTimePeriod) {
-      return isWithinTimePeriod(
+    if (
+      menu.discountedTimePeriod &&
+      isWithinTimePeriod(
         menu.discountedTimePeriod.begin,
         menu.discountedTimePeriod.end
+      )
+    ) {
+      return (
+        <div className="flex gap-x-2 flex-wrap">
+          <div className="line-through text-neutral-500">
+            ราคา {menu.fullPrice} บาท
+          </div>
+          <div>
+            ราคา {menu.fullPrice * (1 - menu.discountedPercent / 100)} บาท
+          </div>
+        </div>
       );
     }
-    return menu.discountedPercent > 0;
+    return <div>ราคา {menu.fullPrice} บาท</div>;
   };
 
-  const closeModel = () => {
+  const closeModal = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsClosing(false);
@@ -57,7 +69,7 @@ const FullMenuModel = (props: FullMenuModelProps): JSX.Element => {
 
               <button
                 className="absolute top-4 right-3 p-2 rounded-full hover:bg-neutral-100"
-                onClick={() => closeModel()}
+                onClick={() => closeModal()}
               >
                 <IoIosArrowDown className="w-7 h-7" />
               </button>
@@ -72,20 +84,7 @@ const FullMenuModel = (props: FullMenuModelProps): JSX.Element => {
 
               <div className="p-5 xl:px-12 flex flex-col gap-y-2">
                 <h2 className="font-semibold text-xl sm:text-2xl">
-                  {isDiscounted() ? (
-                    <div className="flex gap-x-2 flex-wrap">
-                      <div className="line-through text-neutral-500">
-                        ราคา {menu.fullPrice} บาท
-                      </div>
-                      <div>
-                        ราคา{" "}
-                        {menu.fullPrice * (1 - menu.discountedPercent / 100)}{" "}
-                        บาท
-                      </div>
-                    </div>
-                  ) : (
-                    <div>ราคา {menu.fullPrice} บาท</div>
-                  )}
+                  {isDiscounted()}
                 </h2>
 
                 <div className="h-[1.5px] bg-neutral-300" />
@@ -113,7 +112,7 @@ const FullMenuModel = (props: FullMenuModelProps): JSX.Element => {
               <button
                 className="w-full bg-green-500 text-white py-2 rounded-lg 
                 hover:bg-green-400 mt-3"
-                onClick={() => closeModel()}
+                onClick={() => closeModal()}
               >
                 กดเพื่อสั่ง
               </button>
@@ -125,4 +124,4 @@ const FullMenuModel = (props: FullMenuModelProps): JSX.Element => {
   );
 };
 
-export default FullMenuModel;
+export default FullMenuModal;

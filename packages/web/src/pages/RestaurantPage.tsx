@@ -35,14 +35,32 @@ const RestaurantPage = () => {
     }
   }, [inView, menus, loading]);
 
-  const isOpen = () => {
-    if (restaurant) {
-      return isWithinTimePeriod(
-        restaurant?.activeTimePeriod.open,
-        restaurant?.activeTimePeriod.close
+  const renderIsOpen = () => {
+    if (
+      restaurant?.activeTimePeriod &&
+      isWithinTimePeriod(
+        restaurant.activeTimePeriod.open,
+        restaurant.activeTimePeriod.close
+      )
+    ) {
+      return (
+        <div
+          className="w-24 h-8 bg-green-500 text-white rounded-lg
+          flex items-center justify-center"
+        >
+          เปิด
+        </div>
       );
     }
-    return false;
+
+    return (
+      <div
+        className="w-24 h-8 bg-red-500 text-white rounded-lg
+        flex items-center justify-center"
+      >
+        ปิด
+      </div>
+    );
   };
 
   return (
@@ -66,21 +84,7 @@ const RestaurantPage = () => {
           <div className="w-full flex flex-col gap-y-10 p-3">
             <div className="flex gap-x-5 items-center flex-wrap gap-y-3">
               <h1 className="font-extrabold text-4xl">{restaurant?.name}</h1>
-              {isOpen() ? (
-                <div
-                  className="w-24 h-8 bg-green-500 text-white rounded-lg
-                flex items-center justify-center"
-                >
-                  เปิด
-                </div>
-              ) : (
-                <div
-                  className="w-24 h-8 bg-red-500 text-white rounded-lg
-                flex items-center justify-center"
-                >
-                  ปิด
-                </div>
-              )}
+              {renderIsOpen()}
             </div>
 
             <div className="flex flex-col gap-y-6">

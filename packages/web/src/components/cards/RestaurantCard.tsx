@@ -3,14 +3,32 @@ import { Restaurant } from "../../types/restuarant";
 import isWithinTimePeriod from "../../utils/isWithinTimePeriod";
 
 const RestaurantCard = (props: Restaurant): JSX.Element => {
-  const isOpen = () => {
-    if (props.activeTimePeriod) {
-      return isWithinTimePeriod(
+  const renderIsOpen = () => {
+    if (
+      props.activeTimePeriod &&
+      isWithinTimePeriod(
         props.activeTimePeriod.open,
         props.activeTimePeriod.close
+      )
+    ) {
+      return (
+        <div
+          className="w-24 h-8 bg-green-500 text-white rounded-lg
+          flex items-center justify-center"
+        >
+          เปิด
+        </div>
       );
     }
-    return false;
+
+    return (
+      <div
+        className="w-24 h-8 bg-red-500 text-white rounded-lg
+        flex items-center justify-center"
+      >
+        ปิด
+      </div>
+    );
   };
 
   return (
@@ -26,21 +44,7 @@ const RestaurantCard = (props: Restaurant): JSX.Element => {
 
       <div className="flex flex-col py-2 gap-y-3">
         <h2 className="font-bold text-xl">{props.name}</h2>
-        {isOpen() ? (
-          <div
-            className="w-24 h-8 bg-green-500 text-white rounded-lg
-            flex items-center justify-center"
-          >
-            เปิด
-          </div>
-        ) : (
-          <div
-            className="w-24 h-8 bg-red-500 text-white rounded-lg
-            flex items-center justify-center"
-          >
-            ปิด
-          </div>
-        )}
+        {renderIsOpen()}
       </div>
     </Link>
   );
