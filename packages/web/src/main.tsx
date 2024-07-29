@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import Restuarant from "./pages/Restuarant";
+import "./index.css";
+import RestaurantPage from "./pages/RestaurantPage";
 
 const router = createBrowserRouter([
   {
@@ -10,8 +11,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/restaurant/:restaurantId/",
-    element: <Restuarant />,
+    path: "/:restaurantId/",
+    element: <RestaurantPage />,
   },
 ]);
 
