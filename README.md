@@ -1,6 +1,7 @@
 ## Table of Contents
 
 - [Background](#background)
+- [What this does?](#what-this-does)
 - [Project Requirements](#project-requirements)
 - [Demonstration](#demonstration)
 - [Built With](#built-with)
@@ -10,8 +11,11 @@
 
 ## Background
 
-This project is an assignment for the LINE MAN Wongnai Frontend Engineer Internship 2023 application.
-[Link to project's specification](SPEC-eng.md)
+This project is an assignment for the LINE MAN Wongnai Frontend Engineer Internship 2023 application. For more details, refer to [the project's specification](SPEC-eng.md).
+
+## What this does?
+
+A web application for displaying restaurants and their menus. Users will be able to see further details of each menu. The frontend connects to an API Gateway that retrieves data from the provided JSON data of restaurants and menus.
 
 ## Project Requirements
 
